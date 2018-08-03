@@ -13,13 +13,24 @@ namespace DirectoryAndDirectoryInfo
         {
             var path = @"c:\temp\";
             var sciezka = @"C:\Users\programowanie\source\repos\";
-            Directory.CreateDirectory(path+"1"+"2");
+            //Directory.CreateDirectory(path+"1"+"2");
 
-            var files = Directory.GetFiles(sciezka, "*.cs*", SearchOption.AllDirectories);
-            foreach (var file in files)
+            //var files = Directory.GetFiles(sciezka, "*.sln", SearchOption.AllDirectories);
+            //foreach (var file in files)
+            //{
+            //    Console.WriteLine(file);
+            //}
+
+            var directories = Directory.GetDirectories(sciezka, "*.*", searchOption:SearchOption.AllDirectories);
+            foreach (var directory in directories)
             {
-                Console.WriteLine(file);
+                Console.WriteLine(directory);
             }
+            
+            var dirifo = new DirectoryInfo(sciezka);
+            dirifo.GetFiles();
+            dirifo.GetDirectories();
+            
         }
     }
 }
